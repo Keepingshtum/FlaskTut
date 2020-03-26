@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template,url_for
 @app.route("/")
 def index():
     return render_template("public/index.html")
@@ -11,3 +11,7 @@ def about():
     <p>This is a lovely little paragraph</p>
     <code>Flask is <em>awesome</em></code>
     """
+
+@app.route("/upload.php",methods=['POST'])
+def upload():
+    return url_for('static',filename='upload.php')
